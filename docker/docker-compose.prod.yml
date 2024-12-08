@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  kafka-broker:
+    environment:
+      KAFKA_MIN_INSYNC_REPLICAS: 2
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  redis:
+    command: redis-server --appendonly yes
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  postgres:
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"

@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  redis:
+    ports:
+      - "6379:6379"
+
+  postgres:
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: my_database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+volumes:
+  kafka-data:
+  postgres_data:
